@@ -100,7 +100,8 @@ namespace BlizzLike
             if (u->GetTypeId() == TYPEID_UNIT && ((Creature*)u)->isElite())
                 xp_gain *= 2;
 
-            return (uint32)(xp_gain*sWorld.getRate(RATE_XP_KILL));
+            float premium_rate = pl->GetSession()->IsPremium() ? sWorld.getRate(RATE_XP_KILL_PREMIUM) : 1.0f;
+            return (uint32)(xp_gain * sWorld.getRate(RATE_XP_KILL) * premium_rate);
         }
 
         inline uint32 xp_Diff(uint32 lvl)

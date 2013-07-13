@@ -695,6 +695,10 @@ ChatCommand * ChatHandler::getCommandTable()
         { "unbindsight",    SEC_ADMINISTRATOR,  false, &ChatHandler::HandleUnbindSightCommand,         "", NULL },
         { "mmap",           SEC_GAMEMASTER,     false, NULL,                                           "", mmapCommandTable },
 
+        // accpremium commands
+        { "accpadd",        SEC_ADMINISTRATOR,  true,  &ChatHandler::HandleAddPremiumAccountCommand,   "", NULL },
+        { "accpdel",        SEC_ADMINISTRATOR,  true,  &ChatHandler::HandleDelPremiumAccountCommand,   "", NULL },
+
         // warp command
         { "warp",           SEC_ADMINISTRATOR,  false, &ChatHandler::HandleWarpCommand,                "", NULL },
 

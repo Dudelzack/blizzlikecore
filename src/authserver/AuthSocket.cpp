@@ -348,6 +348,8 @@ bool AuthSocket::_HandleLogonChallenge()
     // Set expired bans to inactive
     LoginDatabase.Execute("UPDATE account_banned SET active = 0 WHERE unbandate<=UNIX_TIMESTAMP() AND unbandate<>bandate");
     LoginDatabase.Execute("DELETE FROM ip_banned WHERE unbandate<=UNIX_TIMESTAMP() AND unbandate<>bandate");
+    // Delete expired account premium
+    LoginDatabase.Execute("DELETE FROM account_premium WHERE unsetdate<=UNIX_TIMESTAMP() AND unsetdate<>setdate");
 
     // Verify that this IP is not in the ip_banned table
     // No SQL injection possible (paste the IP address as passed by the socket)

@@ -5267,6 +5267,40 @@ bool ChatHandler::HandleResetAllCommand(const char * args)
     return true;
 }
 
+bool ChatHandler::HandleAddPremiumAccountCommand(const char* args)
+{
+    if (!*args)
+        return false;
+
+    char* id_accpremium  = strtok((char*)args, " ");
+    char* time_to_expire = strtok((char*)NULL, " ");
+    uint32 idaccpremium = atoi(id_accpremium);
+    if (!idaccpremium || !time_to_expire)
+        return false;
+
+    LoginDatabase.PExecute("DELETE FROM account_premium WHERE id = '%u'", idaccpremium);
+    LoginDatabase.PExecute("INSERT INTO account_premium VALUES ('%u',UNIX_TIMESTAMP(),UNIX_TIMESTAMP()+'%u', 1, 1)", idaccpremium, TimeStringToSecs(time_to_expire));
+    PSendSysMessage("%s%s%u|r", "|cff00ff00", "Add new premium account id: ", idaccpremium);
+
+    return true;
+}
+
+bool ChatHandler::HandleDelPremiumAccountCommand(const char* args)
+{
+    if (!*args)
+        return false;
+
+    char* id_accpremium  = strtok((char*)args, " ");
+    uint32 idaccpremium = atoi(id_accpremium);
+    if (!idaccpremium)
+        return false;
+
+    LoginDatabase.PExecute("DELETE FROM account_premium WHERE id = '%u'", idaccpremium);
+    PSendSysMessage("%s%s%u|r", "|cff00ff00", "Del premium account id: ", idaccpremium);
+
+    return true;
+}
+
 bool ChatHandler::HandleServerShutDownCancelCommand(const char* /*args*/)
 {
     sWorld.ShutdownCancel();

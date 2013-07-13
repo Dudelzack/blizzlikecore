@@ -5701,6 +5701,8 @@ void Player::CheckAreaExploreAndOutdoor()
                     XP = uint32(objmgr.GetBaseXP(p->area_level)*sWorld.getRate(RATE_XP_EXPLORE));
                 }
 
+                if (GetSession()->IsPremium())
+                XP *= sWorld.getRate(RATE_XP_EXPLORE_PREMIUM);
                 GiveXP(XP, NULL);
                 SendExplorationExperience(area,XP);
             }
@@ -13353,6 +13355,8 @@ void Player::RewardQuest(Quest const* pQuest, uint32 reward, Object* questGiver,
 
     // Not give XP in case already completed once repeatable quest
     uint32 XP = q_status.m_rewarded ? 0 : uint32(pQuest->XPValue(this)*sWorld.getRate(RATE_XP_QUEST));
+    if (GetSession()->IsPremium())
+        XP *= sWorld.getRate(RATE_XP_QUEST_PREMIUM);
 
     if (getLevel() < sWorld.getConfig(CONFIG_MAX_PLAYER_LEVEL))
         GiveXP(XP , NULL);

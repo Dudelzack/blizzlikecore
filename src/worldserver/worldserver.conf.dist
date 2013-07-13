@@ -1297,7 +1297,10 @@ Visibility.Notify.Period.InBGArenas   = 1000
 #    Rate.XP.Kill
 #    Rate.XP.Quest
 #    Rate.XP.Explore
-#        XP rates
+#    Rate.XP.Kill.Premium
+#    Rate.XP.Quest.Premium
+#    Rate.XP.Explore.Premium
+#        XP rates (Premium modifier)
 #        Default: 1
 #
 #    Rate.XP.PastLevel70
@@ -1431,6 +1434,9 @@ Rate.Drop.Money = 1
 Rate.XP.Kill    = 1
 Rate.XP.Quest   = 1
 Rate.XP.Explore = 1
+Rate.XP.Kill.Premium    = 1
+Rate.XP.Quest.Premium   = 1
+Rate.XP.Explore.Premium = 1
 Rate.XP.PastLevel70 = 1
 Rate.Rest.InGame = 1
 Rate.Rest.Offline.InTavernOrCity = 1

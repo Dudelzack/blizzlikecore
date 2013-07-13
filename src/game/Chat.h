@@ -432,6 +432,10 @@ class ChatHandler
 
         bool HandleResetAllCommand(const char * args);
 
+        // accpremium commands
+        bool HandleAddPremiumAccountCommand(const char* args);
+        bool HandleDelPremiumAccountCommand(const char* args);
+
         // warp command
         bool HandleWarpCommand(const char * args);                                              
 
