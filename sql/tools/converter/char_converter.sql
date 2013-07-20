@@ -1,7 +1,7 @@
 /* 
-##############################
-####### (C) KillaVulka #######
-##############################
+###############################
+####### (C) KillaVulkan #######
+###############################
 */
 
 -- Char Convert cmangos_tbc -> Blizzlikecore
@@ -112,7 +112,6 @@ INSERT INTO `auctionhousebot` VALUES (2,'Alliance',0,0,0,27,12,10,1,0,0,0,10,30,
 /*!40000 ALTER TABLE `auctionhousebot` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
 --
 -- `bugreport`
 DROP TABLE bugreport;
@@ -153,7 +152,6 @@ ALTER TABLE `character_aura` ADD `remaincharges` int(11) NOT NULL DEFAULT '0' AF
 ALTER TABLE `character_aura` drop PRIMARY KEY;
 ALTER TABLE `character_aura` add PRIMARY KEY (`guid`,`caster_guid`,`spell`,`effect_index`);
 
-
 --
 -- `character_battleground_data`
 DROP TABLE character_battleground_data;
@@ -182,7 +180,6 @@ LOCK TABLES `character_battleground_data` WRITE;
 UNLOCK TABLES;
 
 
-
 DROP TABLE character_db_version;
 DROP TABLE character_queststatus_daily;
 
@@ -204,7 +201,6 @@ LOCK TABLES `character_queststatus_daily` WRITE;
 /*!40000 ALTER TABLE `character_queststatus_daily` DISABLE KEYS */;
 /*!40000 ALTER TABLE `character_queststatus_daily` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 DROP TABLE character_stats;
 DROP TABLE character_ticket;
@@ -261,7 +257,6 @@ LOCK TABLES `corpse` WRITE;
 /*!40000 ALTER TABLE `corpse` DISABLE KEYS */;
 /*!40000 ALTER TABLE `corpse` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 DROP TABLE creature_respawn;
 
@@ -353,10 +348,8 @@ LOCK TABLES `gm_tickets` WRITE;
 /*!40000 ALTER TABLE `gm_tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
 DROP TABLE gameobject_respawn;
 DROP TABLE game_event_status;
-
 
 ALTER table `group_member` CHANGE `groupId` `leaderGuid` int(11) unsigned NOT NULL;
 ALTER table `groups` DROP groupId;
