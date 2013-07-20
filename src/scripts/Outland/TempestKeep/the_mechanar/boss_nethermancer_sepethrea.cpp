@@ -38,7 +38,7 @@ struct boss_nethermancer_sepethreaAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool HeroicMode;
 
@@ -158,7 +158,7 @@ struct mob_ragin_flamesAI : public ScriptedAI
         pInstance = c->GetInstanceData();        HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool HeroicMode;
 

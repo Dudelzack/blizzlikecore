@@ -22,7 +22,7 @@ struct boss_aku_maiAI : public ScriptedAI
     uint32 uiPoisonCloudTimer;
     bool bIsEnraged;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

@@ -142,7 +142,7 @@ struct boss_leotheras_the_blindAI : public ScriptedAI
             SpellBinderGUID[i] = 0;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Whirlwind_Timer;
     uint32 ChaosBlast_Timer;
@@ -638,7 +638,7 @@ struct mob_greyheart_spellbinderAI : public ScriptedAI
         AddedBanish = false;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 leotherasGUID;
 

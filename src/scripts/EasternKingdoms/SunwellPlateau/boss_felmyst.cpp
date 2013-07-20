@@ -109,7 +109,7 @@ struct boss_felmystAI : public ScriptedAI
             TempSpell->Attributes |= SPELL_ATTR_PASSIVE;*/
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     PhaseFelmyst phase;
     EventMap events;
 

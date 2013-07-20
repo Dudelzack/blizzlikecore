@@ -173,7 +173,7 @@ struct npc_thrall_old_hillsbradAI : public npc_escortAI
         me->setActive(true);
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 TarethaGUID;
 
@@ -554,7 +554,7 @@ struct npc_tarethaAI : public npc_escortAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void WaypointReached(uint32 i)
     {

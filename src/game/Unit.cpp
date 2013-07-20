@@ -3444,6 +3444,7 @@ bool AuraStacking(uint32 auraID)
   {
     case 22959: //scorch
     case 15258: //shadow weaving
+    case 45770: //shadow bolt volley
     return true;
   default:
     return false;
@@ -7515,6 +7516,12 @@ uint32 Unit::SpellDamageBonus(Unit* pVictim, SpellEntry const *spellProto, uint3
             {
                 CastingTime = 3.5;
             }
+           // Shadow bolt volley
+           else if (spellProto->Id == 45770)
+           {
+               if (pVictim->HasAura(45770, 1))             // if debuff exist
+                   pdamage += TakenAdvertisedBenefit;      // increased shadow damage (750*stack_amount)
+           }
         case SPELLFAMILY_MAGE:
             // Ignite - do not modify, it is (8*Rank)% damage of procing Spell
             if (spellProto->Id == 12654)
@@ -7524,8 +7531,8 @@ uint32 Unit::SpellDamageBonus(Unit* pVictim, SpellEntry const *spellProto, uint3
             // Ice Lance
             else if ((spellProto->SpellFamilyFlags & 0x20000LL) && spellProto->SpellIconID == 186)
             {
-                CastingTime /= 3;                           // applied 1/3 bonuses in case generic target
-                if (pVictim->isFrozen())                     // and compensate this for frozen target.
+                CastingTime /= 3;                          // applied 1/3 bonuses in case generic target
+                if (pVictim->isFrozen())                   // and compensate this for frozen target.
                     TakenTotalMod *= 3.0f;
             }
             // Pyroblast - 115% of Fire Damage, DoT - 20% of Fire Damage

@@ -73,7 +73,7 @@ struct boss_halazziAI : public ScriptedAI
             TempSpell->CastingTimeIndex = 5; // 2000 ms casting time
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 FrenzyTimer;
     uint32 SaberlashTimer;

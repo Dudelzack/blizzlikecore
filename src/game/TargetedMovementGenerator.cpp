@@ -150,7 +150,7 @@ bool TargetedMovementGenerator<T>::_setTargetLocation(T &owner)
     else
     {
         // to at i_offset distance from target and i_angle from target facing
-        i_target->GetClosePoint(x, y, z, owner.GetObjectSize(), i_offset,i_angle);
+        i_target->GetClosePoint(x, y, z, (owner.GetObjectSize() - 0.1f), i_offset, i_angle);
     }
 
     /*
@@ -176,7 +176,7 @@ bool TargetedMovementGenerator<T>::_setTargetLocation(T &owner)
         bool forceDest = false;
         // allow pets to cheat while generating paths as they should ALWAYS be able to reach thier target.
         if (owner.GetTypeId() == TYPEID_UNIT
-            && owner.ToCreature()
+            && owner.hasUnitState(UNIT_STAT_FOLLOW)
             && owner.ToCreature()->isPet())
             forceDest = true;
 

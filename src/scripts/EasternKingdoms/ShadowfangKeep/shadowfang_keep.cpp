@@ -48,7 +48,7 @@ struct npc_shadowfang_prisonerAI : public npc_escortAI
         uiNpcEntry = c->GetEntry();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     uint32 uiNpcEntry;
 
     void WaypointReached(uint32 uiPoint)

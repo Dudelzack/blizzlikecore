@@ -3819,7 +3819,7 @@ uint8 Spell::CanCast(bool strict)
             return castResult;
         else if (m_spellInfo->Id == 33395)
         { // Water elemental freeze range check.
-            m_caster->GetMotionMaster()->MoveFollow(m_caster->GetOwner(), PET_FOLLOW_DIST,PET_FOLLOW_ANGLE);
+            m_caster->GetMotionMaster()->MoveFollow(m_caster->GetOwner(), PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
             if (uint8 castResult = CheckRange(strict))
                 return castResult;
         }

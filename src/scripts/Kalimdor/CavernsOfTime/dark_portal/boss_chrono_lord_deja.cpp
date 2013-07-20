@@ -35,7 +35,7 @@ struct boss_chrono_lord_dejaAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     uint32 ArcaneBlast_Timer;

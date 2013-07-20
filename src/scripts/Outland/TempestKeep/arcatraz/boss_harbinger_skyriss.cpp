@@ -51,7 +51,7 @@ struct boss_harbinger_skyrissAI : public ScriptedAI
         Intro = false;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     bool Intro;
@@ -272,7 +272,7 @@ struct boss_harbinger_skyriss_illusionAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     void Reset() { }

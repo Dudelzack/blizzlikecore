@@ -80,7 +80,7 @@ struct boss_sacrolashAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool SisterDeath;
     bool Enraged;
@@ -338,7 +338,7 @@ struct boss_alythessAI : public Scripted_NoMovementAI
         IntroStepCounter = 10;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool SisterDeath;
     bool Enraged;

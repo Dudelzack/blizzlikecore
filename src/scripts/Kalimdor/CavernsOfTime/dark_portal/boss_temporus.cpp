@@ -34,7 +34,7 @@ struct boss_temporusAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     uint32 Haste_Timer;

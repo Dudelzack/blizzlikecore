@@ -13,20 +13,24 @@ EndScriptData */
 #include "ScriptPCH.h"
 #include "zulgurub.h"
 
-#define SAY_AGGRO                       -1309014
+enum Say
+{
+    SAY_AGGRO                       = -1309014
+};
 
-#define SPELL_BRAINWASHTOTEM            24262
-#define SPELL_POWERFULLHEALINGWARD      24309               //We will not use this spell. We will summon a totem by script cause the spell totems will not cast.
-#define SPELL_HEX                       24053
-#define SPELL_DELUSIONSOFJINDO          24306
-#define SPELL_SHADEOFJINDO              24308               //We will not use this spell. We will summon a shade by script.
-
-//Healing Ward Spell
-#define SPELL_HEAL                      38588               //Totems are not working right. Right heal spell ID is 24311 but this spell is not casting...
-
-//Shade of Jindo Spell
-#define SPELL_SHADOWSHOCK               19460
-#define SPELL_INVISIBLE                 24699
+enum Spells
+{
+    SPELL_BRAINWASHTOTEM            = 24262,
+    SPELL_POWERFULLHEALINGWARD      = 24309, // HACKED Totem summoned by script because the spell totems will not cast.
+    SPELL_HEX                       = 24053,
+    SPELL_DELUSIONSOFJINDO          = 24306,
+    SPELL_SHADEOFJINDO              = 24308, // HACKED
+    //Healing Ward Spell
+    SPELL_HEAL                      = 38588, // HACKED Totems are not working right. Right heal spell ID is 24311 but this spell is not casting...
+    //Shade of Jindo Spell
+    SPELL_SHADOWSHOCK               = 19460,
+    SPELL_INVISIBLE                 = 24699
+};
 
 struct boss_jindoAI : public ScriptedAI
 {
@@ -58,18 +62,18 @@ struct boss_jindoAI : public ScriptedAI
             return;
 
         //BrainWashTotem_Timer
-        if (BrainWashTotem_Timer <= diff)
+/*      if (BrainWashTotem_Timer <= diff)
         {
             DoCast(me, SPELL_BRAINWASHTOTEM);
-            BrainWashTotem_Timer = 18000 + rand()%8000;
+            BrainWashTotem_Timer = urand(18000, 26000);
         } else BrainWashTotem_Timer -= diff;
-
+*/
         //HealingWard_Timer
         if (HealingWard_Timer <= diff)
         {
             //DoCast(me, SPELL_POWERFULLHEALINGWARD);
             me->SummonCreature(14987, me->GetPositionX()+3, me->GetPositionY()-2, me->GetPositionZ(), 0, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN,30000);
-            HealingWard_Timer = 14000 + rand()%6000;
+            HealingWard_Timer = urand(14000, 20000);
         } else HealingWard_Timer -= diff;
 
         //Hex_Timer
@@ -80,7 +84,7 @@ struct boss_jindoAI : public ScriptedAI
             if (DoGetThreat(me->getVictim()))
                 DoModifyThreatPercent(me->getVictim(), -80);
 
-            Hex_Timer = 12000 + rand()%8000;
+            Hex_Timer = urand(12000, 20000);
         } else Hex_Timer -= diff;
 
         //Casting the delusion curse with a shade. So shade will attack the same target with the curse.
@@ -95,7 +99,7 @@ struct boss_jindoAI : public ScriptedAI
                     Shade->AI()->AttackStart(pTarget);
             }
 
-            Delusions_Timer = 4000 + rand()%8000;
+            Delusions_Timer = urand(4000, 12000);
         } else Delusions_Timer -= diff;
 
         //Teleporting a random gamer and spawning 9 skeletons that will attack this gamer
@@ -105,7 +109,7 @@ struct boss_jindoAI : public ScriptedAI
             pTarget = SelectUnit(SELECT_TARGET_RANDOM,0);
             if (pTarget && pTarget->GetTypeId() == TYPEID_PLAYER)
             {
-                DoTeleportPlayer(pTarget, -11583.7783f,-1249.4278f,77.5471f,4.745f);
+                DoTeleportPlayer(pTarget, -11583.7783f, -1249.4278f, 77.5471f, 4.745f);
 
                 if (DoGetThreat(me->getVictim()))
                     DoModifyThreatPercent(pTarget, -100);
@@ -140,7 +144,7 @@ struct boss_jindoAI : public ScriptedAI
                     Skeletons->AI()->AttackStart(pTarget);
             }
 
-            Teleport_Timer = 15000 + rand()%8000;
+            Teleport_Timer = urand(15000, 23000);
         } else Teleport_Timer -= diff;
 
         DoMeleeAttackIfReady();
@@ -157,7 +161,7 @@ struct mob_healing_wardAI : public ScriptedAI
 
     uint32 Heal_Timer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

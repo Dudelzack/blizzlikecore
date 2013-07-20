@@ -230,7 +230,7 @@ struct npc_volcanoAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 CheckTimer;
     bool Eruption;

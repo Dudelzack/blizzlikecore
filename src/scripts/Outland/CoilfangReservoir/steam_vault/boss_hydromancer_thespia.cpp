@@ -38,7 +38,7 @@ struct boss_thespiaAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     uint32 LightningCloud_Timer;

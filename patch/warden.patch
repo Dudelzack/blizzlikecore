@@ -3417,7 +3417,7 @@ index 0000000..84aaccc
 +
 +#endif
 diff --git a/src/game/World.cpp b/src/game/World.cpp
-index ea7495d..5ae077c 100644
+index f85c9c9..5d7ba25 100644
 --- a/src/game/World.cpp
 +++ b/src/game/World.cpp
 @@ -49,6 +49,7 @@
@@ -3428,7 +3428,7 @@ index ea7495d..5ae077c 100644
  
  INSTANTIATE_SINGLETON_1(World);
  
-@@ -1095,6 +1096,14 @@ void World::LoadConfigSettings(bool reload)
+@@ -1097,6 +1098,14 @@ void World::LoadConfigSettings(bool reload)
      m_configs[CONFIG_CHATLOG_ADDON] = sConfig.GetBoolDefault("ChatLogs.Addon", false);
      m_configs[CONFIG_CHATLOG_BGROUND] = sConfig.GetBoolDefault("ChatLogs.BattleGround", false);
  
@@ -3443,7 +3443,7 @@ index ea7495d..5ae077c 100644
      // mmaps
      m_configs[CONFIG_BOOL_MMAP_ENABLED] = sConfig.GetBoolDefault("mmap.enable", true);
      std::string ignoreMMapIds = sConfig.GetStringDefault("mmap.ignoreMapIds", "");
-@@ -1495,6 +1504,10 @@ void World::SetInitialWorldSettings()
+@@ -1497,6 +1506,10 @@ void World::SetInitialWorldSettings()
      uint32 nextGameEvent = gameeventmgr.Initialize();
      m_timers[WUPDATE_EVENTS].SetInterval(nextGameEvent);    //depend on next event
  
@@ -3455,10 +3455,10 @@ index ea7495d..5ae077c 100644
      sLog.outString("Starting BattleGround System");
      sBattleGroundMgr.CreateInitialBattleGrounds();
 diff --git a/src/game/World.h b/src/game/World.h
-index 977ad28..2440d09 100644
+index 39ecd07..06a597c 100644
 --- a/src/game/World.h
 +++ b/src/game/World.h
-@@ -239,6 +239,12 @@ enum WorldConfigs
+@@ -240,6 +240,12 @@ enum WorldConfigs
      CONFIG_AUTOBROADCAST_TIMER,
      CONFIG_AUTOBROADCAST_ENABLED,
      CONFIG_AUTOBROADCAST_CENTER,
@@ -3862,10 +3862,10 @@ index ec9d143..2fe7ba2 100644
  #if PLATFORM == PLATFORM_WINDOWS
  #define UTF8PRINTF(OUT,FRM,RESERR)                      \
 diff --git a/src/worldserver/worldserver.conf.dist b/src/worldserver/worldserver.conf.dist
-index 48bb574..2f6bcb1 100644
+index 361a688..0b6e493 100644
 --- a/src/worldserver/worldserver.conf.dist
 +++ b/src/worldserver/worldserver.conf.dist
-@@ -2057,3 +2057,51 @@ Die.Command.Mode = 1
+@@ -2063,3 +2063,51 @@ Pet.React.Aggressive = 0
  AutoBroadcast.On = 0
  AutoBroadcast.Center = 0
  AutoBroadcast.Timer = 60000

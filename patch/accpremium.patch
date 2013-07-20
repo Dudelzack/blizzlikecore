@@ -176,10 +176,10 @@ index b3fbd50..9368d96 100644
      rate_values[RATE_REPUTATION_GAIN]  = sConfig.GetFloatDefault("Rate.Reputation.Gain", 1.0f);
      rate_values[RATE_CREATURE_NORMAL_DAMAGE]          = sConfig.GetFloatDefault("Rate.Creature.Normal.Damage", 1.0f);
 diff --git a/src/game/World.h b/src/game/World.h
-index 12a1cdb..551b637 100644
+index 39ecd07..d23d2a7 100644
 --- a/src/game/World.h
 +++ b/src/game/World.h
-@@ -263,8 +263,11 @@ enum Rates
+@@ -264,8 +264,11 @@ enum Rates
      RATE_DROP_ITEM_REFERENCED,
      RATE_DROP_MONEY,
      RATE_XP_KILL,

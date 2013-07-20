@@ -29,7 +29,7 @@ bool GoHello_blackfathom_altar(Player* pPlayer, GameObject* /*pGo*/)
 
 bool GoHello_blackfathom_fire(Player* /*pPlayer*/, GameObject* pGo)
 {
-    ScriptedInstance *pInstance = pGo->GetInstanceData();
+    ScriptedInstance* pInstance = pGo->GetInstanceData();
 
     if (pInstance)
     {

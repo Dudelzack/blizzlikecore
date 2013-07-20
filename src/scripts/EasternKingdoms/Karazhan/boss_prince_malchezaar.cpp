@@ -154,7 +154,7 @@ struct boss_malchezaarAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     uint32 EnfeebleTimer;
     uint32 EnfeebleResetTimer;
     uint32 ShadowNovaTimer;

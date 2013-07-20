@@ -2006,7 +2006,7 @@ void Spell::EffectDummy(SpellEffIndex effIndex)
                         mod->value = -50;
                         mod->type = SPELLMOD_PCT;
                         mod->spellId = m_spellInfo->Id;
-                         mod->effectId = effIndex;
+                        mod->effectId = effIndex;
                         mod->lastAffected = NULL;
                         mod->mask = 0x0000020000000000LL;
                         mod->charges = 0;
@@ -2202,12 +2202,12 @@ void Spell::EffectTriggerSpellWithValue(SpellEffIndex effIndex)
 
     if (!spellInfo)
     {
-        sLog.outError("EffectTriggerSpellWithValue of spell %u: triggering unknown spell id %i\n", m_spellInfo->Id,triggered_spell_id);
+        sLog.outError("EffectTriggerSpellWithValue of spell %u: triggering unknown spell id %i\n", m_spellInfo->Id, triggered_spell_id);
         return;
     }
 
     int32 bp = damage;
-    m_caster->CastCustomSpell(unitTarget,triggered_spell_id,&bp,&bp,&bp,true,NULL,NULL,m_originalCasterGUID);
+    m_caster->CastCustomSpell(unitTarget, triggered_spell_id, &bp, &bp, &bp, true, NULL, NULL, m_originalCasterGUID);
 }
 
 void Spell::EffectTriggerRitualOfSummoning(SpellEffIndex effIndex)
@@ -2217,7 +2217,7 @@ void Spell::EffectTriggerRitualOfSummoning(SpellEffIndex effIndex)
 
     if (!spellInfo)
     {
-        sLog.outError("EffectTriggerRitualOfSummoning of spell %u: triggering unknown spell id %i", m_spellInfo->Id,triggered_spell_id);
+        sLog.outError("EffectTriggerRitualOfSummoning of spell %u: triggering unknown spell id %i", m_spellInfo->Id, triggered_spell_id);
         return;
     }
 
@@ -2302,44 +2302,42 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
             m_TriggerSpells.push_back(spellInfo);
             return;
         }
+        // Spell 22904 for quest 7509
+        case 22904:
+        {
+            CellPair p(BlizzLike::ComputeCellPair(m_caster->GetPositionX(), m_caster->GetPositionY()));
+            Cell cell(p);
+            cell.data.Part.reserved = ALL_DISTRICT;
 
-       // Spell 22904 for quest 7509
-       case 22904:
-       {
-               CellPair p(BlizzLike::ComputeCellPair(m_caster->GetPositionX(), m_caster->GetPositionY()));
-               Cell cell(p);
-               cell.data.Part.reserved = ALL_DISTRICT;
+            GameObject* ok = NULL;
+            BlizzLike::GameObjectFocusCheck go_check(m_caster,1223);
+            BlizzLike::GameObjectSearcher<BlizzLike::GameObjectFocusCheck> checker(ok,go_check);
 
-               GameObject* ok = NULL;
-               BlizzLike::GameObjectFocusCheck go_check(m_caster,1223);
-               BlizzLike::GameObjectSearcher<BlizzLike::GameObjectFocusCheck> checker(ok,go_check);
+            TypeContainerVisitor<BlizzLike::GameObjectSearcher<BlizzLike::GameObjectFocusCheck>, GridTypeMapContainer > object_checker(checker);
 
-               TypeContainerVisitor<BlizzLike::GameObjectSearcher<BlizzLike::GameObjectFocusCheck>, GridTypeMapContainer > object_checker(checker);
+             Map& map = *m_caster->GetMap();
+            cell.Visit(p, object_checker, map, *m_caster, map.GetVisibilityDistance());
+
+            if (!ok)
+            return;
+
+            // Need fix otherwise the core crash
+            Unit* owner = ok->GetOwner();
                 
-                Map& map = *m_caster->GetMap();
-               cell.Visit(p, object_checker, map, *m_caster, map.GetVisibilityDistance());
-   
-               if (!ok)
-               return;
-
-                // Need fix otherwise the core crash
-               Unit* owner = ok->GetOwner();
-                
-               if (!owner) //Obsolete when the GetOwner() function will fix
-                {
+            if (!owner) //Obsolete when the GetOwner() function will fix
+            {
                         Player* player = NULL;
                BlizzLike::AnyPlayerInObjectRangeCheck checker(m_caster, m_caster->GetMap()->GetVisibilityDistance());
                BlizzLike::PlayerSearcher<BlizzLike::AnyPlayerInObjectRangeCheck> searcher(player, checker);
                m_caster->VisitNearbyWorldObject(m_caster->GetMap()->GetVisibilityDistance(), searcher);
                owner = player;
-                }
+            }
 
-                GameObject* go = owner->SummonGameObject(179562, ok->GetPositionX(), ok->GetPositionY(), ok->GetPositionZ(), ok->GetOrientation(), 0, 0, 0, 0, ok->GetRespawnTime()-time(NULL));
-               go->SetOwnerGUID(owner->GetGUID());
-               owner->RemoveGameObject(ok, true);
-                return;
-       }
-
+            GameObject* go = owner->SummonGameObject(179562, ok->GetPositionX(), ok->GetPositionY(), ok->GetPositionZ(), ok->GetOrientation(), 0, 0, 0, 0, ok->GetRespawnTime()-time(NULL));
+            go->SetOwnerGUID(owner->GetGUID());
+            owner->RemoveGameObject(ok, true);
+            return;
+        }
         // just skip
         case 23770:                                         // Sayge's Dark Fortune of *
             // not exist, common cooldown can be implemented in scripts if need.
@@ -2372,6 +2370,9 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
             m_caster->CastSpell(unitTarget, 31790, true,m_CastItem,NULL,m_originalCasterGUID);
             return;
         }
+        // just skip
+        case 32186:                                         // unknow
+            return;
         // Cloak of Shadows
         case 35729 :
         {
@@ -2406,7 +2407,7 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
 
     if (!spellInfo)
     {
-        sLog.outError("EffectTriggerSpell of spell %u: triggering unknown spell id %i", m_spellInfo->Id,triggered_spell_id);
+        sLog.outError("EffectTriggerSpell of spell %u: triggering unknown spell id %i", m_spellInfo->Id, triggered_spell_id);
         return;
     }
 
@@ -6432,7 +6433,7 @@ void Spell::EffectSummonDeadPet(SpellEffIndex effIndex)
     pet->clearUnitState(UNIT_STAT_ALL_STATE);
     pet->SetHealth(uint32(pet->GetMaxHealth()*(float(damage)/100)));
 
-    pet->AIM_Initialize();
+  //pet->AIM_Initialize();
     _player->PetSpellInitialize(); // -- action bar not removed at death and not required send at revive. new troble, non-controll pet.
     pet->SavePetToDB(PET_SAVE_AS_CURRENT);
 }
@@ -6923,15 +6924,8 @@ void Spell::SummonGuardian(uint32 i, uint32 entry, SummonPropertiesEntry const *
         if (summon->HasSummonMask(SUMMON_MASK_MINION) && m_targets.HasDst())
             ((Minion*)summon)->SetFollowAngle(m_caster->GetAngle(summon));
 
-        //pet is no longer stay after summon
         summon->GetMotionMaster()->MoveFollow(caster, PET_FOLLOW_DIST, summon->GetFollowAngle());
-        summon->SetUInt32Value(UNIT_CREATED_BY_SPELL, m_spellInfo->Id);
-        summon->GetCharmInfo()->SetCommandState(COMMAND_FOLLOW);
-        summon->GetCharmInfo()->SetIsCommandAttack(false);
-        summon->GetCharmInfo()->SetIsAtStay(false);
-        summon->GetCharmInfo()->SetIsReturning(false);
-        summon->GetCharmInfo()->SetIsFollowing(true);
-      //summon->AI()->EnterEvadeMode();
+        summon->AI()->EnterEvadeMode();
     }
 }
 

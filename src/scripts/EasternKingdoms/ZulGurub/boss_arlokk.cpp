@@ -47,7 +47,7 @@ struct boss_arlokkAI : public ScriptedAI
         pInstance = pCreature->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 m_uiShadowWordPain_Timer;
     uint32 m_uiGouge_Timer;
@@ -279,7 +279,7 @@ struct mob_prowlerAI : public ScriptedAI
         pInstance = pCreature->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

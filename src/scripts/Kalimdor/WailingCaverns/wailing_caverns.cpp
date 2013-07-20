@@ -76,7 +76,7 @@ struct npc_disciple_of_naralexAI : public npc_escortAI
     uint32 eventTimer;
     uint32 currentEvent;
     uint32 eventProgress;
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void WaypointReached(uint32 i)
     {
@@ -314,7 +314,7 @@ CreatureAI* GetAI_npc_disciple_of_naralex(Creature* pCreature)
 
 bool GossipHello_npc_disciple_of_naralex(Player* pPlayer, Creature* pCreature)
 {
-    ScriptedInstance *pInstance = pCreature->GetInstanceData();
+    ScriptedInstance* pInstance = pCreature->GetInstanceData();
 
     if (pInstance)
     {
@@ -341,7 +341,7 @@ bool GossipHello_npc_disciple_of_naralex(Player* pPlayer, Creature* pCreature)
 
 bool GossipSelect_npc_disciple_of_naralex(Player* pPlayer, Creature* pCreature, uint32 /*uiSender*/, uint32 uiAction)
 {
-    ScriptedInstance *pInstance = pCreature->GetInstanceData();
+    ScriptedInstance* pInstance = pCreature->GetInstanceData();
     if (uiAction == GOSSIP_ACTION_INFO_DEF + 1)
     {
         pPlayer->CLOSE_GOSSIP_MENU();

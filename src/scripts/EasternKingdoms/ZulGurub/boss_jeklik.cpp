@@ -42,7 +42,7 @@ struct boss_jeklikAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Charge_Timer;
     uint32 SonicBurst_Timer;
@@ -228,7 +228,7 @@ struct mob_batriderAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Bomb_Timer;
     uint32 Despawn_Timer;

@@ -94,7 +94,7 @@ struct boss_nalorakkAI : public ScriptedAI
         }
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 BrutalSwipe_Timer;
     uint32 Mangle_Timer;

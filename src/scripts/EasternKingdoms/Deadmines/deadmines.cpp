@@ -20,7 +20,7 @@ EndScriptData */
 
 bool ItemUse_item_defias_gunpowder(Player* pPlayer, Item* pItem, SpellCastTargets const& targets)
 {
-    ScriptedInstance *pInstance = pPlayer->GetInstanceData();
+    ScriptedInstance* pInstance = pPlayer->GetInstanceData();
 
     if (!pInstance)
     {

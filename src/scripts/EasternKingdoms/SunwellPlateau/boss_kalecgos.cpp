@@ -103,7 +103,7 @@ struct boss_kalecgosAI : public ScriptedAI
             TempSpell->EffectImplicitTargetB[0] = TARGET_UNIT_TARGET_ENEMY;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 ArcaneBuffetTimer;
     uint32 FrostBreathTimer;
@@ -418,7 +418,7 @@ struct boss_sathrovarrAI : public ScriptedAI
         KalecgosGUID = 0;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 CorruptionStrikeTimer;
     uint32 AgonyCurseTimer;
@@ -636,7 +636,7 @@ struct boss_sathrovarrAI : public ScriptedAI
 
 struct boss_kalecAI : public ScriptedAI
 {
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 RevitalizeTimer;
     uint32 HeroicStrikeTimer;

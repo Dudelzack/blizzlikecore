@@ -42,7 +42,7 @@ struct boss_marliAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 SpawnStartSpiders_Timer;
     uint32 PoisonVolley_Timer;

@@ -20,7 +20,7 @@ struct boss_gelihastAI : public ScriptedAI
 
     uint32 uiNetTimer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

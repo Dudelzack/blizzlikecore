@@ -34,7 +34,7 @@ struct boss_captain_skarlocAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Holy_Light_Timer;
     uint32 Cleanse_Timer;

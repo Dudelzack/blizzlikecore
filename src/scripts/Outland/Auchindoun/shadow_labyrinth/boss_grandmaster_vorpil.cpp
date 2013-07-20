@@ -126,7 +126,7 @@ struct boss_grandmaster_vorpilAI : public ScriptedAI
         Intro = false;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool Intro, HelpYell;
     bool sumportals;
     bool HeroicMode;

@@ -43,7 +43,7 @@ struct boss_mekgineer_steamriggerAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     uint32 Shrink_Timer;

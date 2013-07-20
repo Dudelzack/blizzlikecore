@@ -36,7 +36,7 @@ struct mob_naga_distillerAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {
@@ -82,7 +82,7 @@ struct boss_warlord_kalithreshAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Reflection_Timer;
     uint32 Impale_Timer;

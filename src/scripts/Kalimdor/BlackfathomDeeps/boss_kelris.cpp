@@ -30,7 +30,7 @@ struct boss_kelrisAI : public ScriptedAI
     uint32 uiMindBlastTimer;
     uint32 uiSleepTimer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

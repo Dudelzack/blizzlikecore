@@ -62,9 +62,9 @@ m_petType(type), m_duration(0), m_declinedname(NULL)
         InitCharmInfo();
     }
 
-/*  if (type == CLASS_PET)
+    if (type == CLASS_PET && sWorld.getConfig(CONFIG_PET_REACT_AGGRESSIVE))
         SetReactState(REACT_AGGRESSIVE);
-*/
+
     m_name = "Pet";
 
     m_regenTimer = 4000;
@@ -1349,7 +1349,12 @@ void Pet::_LoadAuras(uint32 timediff)
             }
 
             // prevent wrong values of remaincharges
-            if (spellproto->procCharges == 0)			//Fix wrong overriding proc charges at loading
+            if (spellproto->procCharges)
+            {
+                if (remaincharges <= 0 || remaincharges > spellproto->procCharges)
+                    remaincharges = spellproto->procCharges;
+            }
+            else
                 remaincharges = 0;
 
             // do not load single target auras (unless they were cast by the player)
@@ -1581,9 +1586,9 @@ void Pet::InitPetCreateSpells()
             else
                 addSpell(petspellid);
 
-/*          if (petspellid)
+            if (petspellid)
                 ToggleAutocast(petspellid, true);
-*/
+
             SkillLineAbilityMap::const_iterator lower = spellmgr.GetBeginSkillLineAbilityMap(learn_spellproto->EffectTriggerSpell[0]);
             SkillLineAbilityMap::const_iterator upper = spellmgr.GetEndSkillLineAbilityMap(learn_spellproto->EffectTriggerSpell[0]);
 

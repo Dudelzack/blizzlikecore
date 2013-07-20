@@ -50,7 +50,7 @@ struct npc_medivh_bmAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 SpellCorrupt_Timer;
     uint32 Check_Timer;
@@ -232,7 +232,7 @@ struct npc_time_riftAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 TimeRiftWave_Timer;
     uint8 mRiftWaveCount;

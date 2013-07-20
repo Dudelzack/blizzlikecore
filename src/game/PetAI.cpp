@@ -323,12 +323,12 @@ void PetAI::HandleReturnMovement()
             // Return to previous position where stay was clicked
             if (!me->GetCharmInfo()->IsCommandAttack())
             {
-                float x,y,z;
+                float x, y, z;
 
                 me->GetCharmInfo()->GetStayPosition(x, y, z);
                 me->GetCharmInfo()->SetIsReturning(true);
                 me->GetMotionMaster()->Clear();
-                me->GetMotionMaster()->MovePoint(me->GetGUIDLow(),x,y,z);
+                me->GetMotionMaster()->MovePoint(me->GetGUIDLow(), x, y, z);
             }
         }
     }

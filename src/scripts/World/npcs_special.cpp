@@ -1302,7 +1302,7 @@ struct npc_force_of_nature_treantsAI : public ScriptedAI {
             else if (!me->hasUnitState(UNIT_STAT_FOLLOW))
             {
                 me->GetMotionMaster()->Clear();
-                me->GetMotionMaster()->MoveFollow(Owner,PET_FOLLOW_DIST,PET_FOLLOW_ANGLE);
+                me->GetMotionMaster()->MoveFollow(Owner, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
             }
         }
         

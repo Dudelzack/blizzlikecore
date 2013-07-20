@@ -15272,6 +15272,13 @@ void Player::_LoadAuras(QueryResult_AutoPtr result, uint32 timediff)
             int32 remaintime = (int32)fields[6].GetUInt32();
             int32 remaincharges = (int32)fields[7].GetUInt32();
 
+            SpellEntry const* spellInfo = sSpellStore.LookupEntry(spellid);
+            if (!spellInfo)
+            {
+                sLog.outError("Unknown aura (spellid %u), ignore.", spellid);
+                continue;
+            }
+
             if (spellid == SPELL_ARENA_PREPARATION || spellid == SPELL_PREPARATION)
             {
                if (BattleGround const* bg = GetBattleGround())
@@ -15302,8 +15309,15 @@ void Player::_LoadAuras(QueryResult_AutoPtr result, uint32 timediff)
             }
 
             // prevent wrong values of remaincharges
-            if (spellproto->procCharges == 0)
-                remaincharges = 0;						//Fix wrong overriding proc charges at loading
+            if (spellInfo->procCharges)
+            {
+                // we have no control over the order of applying auras and modifiers allow auras
+                // to have more charges than value in SpellInfo
+                if (remaincharges <= 0/* || remaincharges > spellInfo->procCharges*/)
+                    remaincharges = spellInfo->procCharges;
+            }
+            else
+                remaincharges = 0;
 
             //do not load single target auras (unless they were cast by the player)
             if (caster_guid != GetGUID() && IsSingleTargetSpell(spellproto))

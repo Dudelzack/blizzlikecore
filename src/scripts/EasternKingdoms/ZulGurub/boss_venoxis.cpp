@@ -39,7 +39,7 @@ struct boss_venoxisAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 HolyFire_Timer;
     uint32 HolyWrath_Timer;

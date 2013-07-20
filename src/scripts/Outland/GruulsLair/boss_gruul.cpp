@@ -45,7 +45,7 @@ struct boss_gruulAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Growth_Timer;
     uint32 CaveIn_Timer;

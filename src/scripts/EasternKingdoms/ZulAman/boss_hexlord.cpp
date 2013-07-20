@@ -197,7 +197,7 @@ struct boss_hex_lord_malacrassAI : public ScriptedAI
             AddGUID[i] = 0;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 AddGUID[4];
     uint32 AddEntry[4];

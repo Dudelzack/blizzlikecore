@@ -35,7 +35,7 @@ struct boss_aeonusAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool HeroicMode;
 
     uint32 SandBreath_Timer;

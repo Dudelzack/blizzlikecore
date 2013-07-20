@@ -114,7 +114,7 @@ struct boss_thekalAI : public ScriptedAI
     uint32 Enrage_Timer;
     uint32 Frenzy_Timer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool Enraged;
 
@@ -313,7 +313,7 @@ struct mob_zealot_lorkhanAI : public ScriptedAI
     uint32 GreaterHeal_Timer;
     uint32 Disarm_Timer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {
@@ -483,7 +483,7 @@ struct mob_zealot_zathAI : public ScriptedAI
     uint32 Kick_Timer;
     uint32 Blind_Timer;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

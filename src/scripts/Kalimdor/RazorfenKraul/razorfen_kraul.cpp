@@ -127,7 +127,7 @@ struct npc_deaths_head_ward_keeperAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     uint32 QuillboarChanneling_Timer;
 
     void Reset()

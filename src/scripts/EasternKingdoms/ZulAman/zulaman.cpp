@@ -32,7 +32,7 @@ struct npc_forest_frogAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset() {}
 

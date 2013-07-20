@@ -55,7 +55,7 @@ struct boss_akilzonAI : public ScriptedAI
             TempSpell->EffectBasePoints[1] = 49;//disable bugged lightning until fixed in core
         pInstance = c->GetInstanceData();
     }
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 BirdGUIDs[8];
     uint64 TargetGUID;

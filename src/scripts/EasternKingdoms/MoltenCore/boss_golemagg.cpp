@@ -33,7 +33,7 @@ struct boss_golemaggAI : public ScriptedAI
         pInstance = pCreature->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 uiPyroblastTimer;
     uint32 uiEarthquakeTimer;
@@ -113,7 +113,7 @@ struct mob_core_ragerAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 uiMangleTimer;
 

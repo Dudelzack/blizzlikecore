@@ -161,7 +161,7 @@ struct boss_terestianAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 PortalGUID[2];
     uint8 PortalsCount;

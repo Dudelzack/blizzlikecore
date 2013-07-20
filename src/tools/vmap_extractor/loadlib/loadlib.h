@@ -6,8 +6,6 @@
 #ifndef LOAD_LIB_H
 #define LOAD_LIB_H
 
-#include "warnings.h"
-
 #ifdef _WIN32
 typedef __int64            int64;
 typedef __int32            int32;

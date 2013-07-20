@@ -904,6 +904,8 @@ void World::LoadConfigSettings(bool reload)
 
     m_configs[CONFIG_DIE_COMMAND_MODE] = sConfig.GetBoolDefault("Die.Command.Mode", true);
 
+    m_configs[CONFIG_PET_REACT_AGGRESSIVE] = sConfig.GetBoolDefault("Pet.React.Aggressive", false);
+
     m_configs[CONFIG_THREAT_RADIUS] = sConfig.GetIntDefault("ThreatRadius", 60);
 
     // always use declined names in the russian client

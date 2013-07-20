@@ -50,7 +50,7 @@ struct boss_skeramAI : public ScriptedAI
         IsImage = false;
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 ArcaneExplosion_Timer;
     uint32 EarthShock_Timer;

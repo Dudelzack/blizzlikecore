@@ -39,7 +39,7 @@ struct boss_theravenianAI : public ScriptedAI
 
     void JustDied(Unit* /*killer*/)
     {
-        ScriptedInstance *pInstance = me->GetInstanceData();
+        ScriptedInstance* pInstance = me->GetInstanceData();
         if (pInstance)
         {
             pInstance->SetData(DATA_THERAVENIAN_DEATH, 0);

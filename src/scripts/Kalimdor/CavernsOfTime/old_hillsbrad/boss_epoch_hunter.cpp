@@ -36,7 +36,7 @@ struct boss_epoch_hunterAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 SandBreath_Timer;
     uint32 ImpendingDeath_Timer;

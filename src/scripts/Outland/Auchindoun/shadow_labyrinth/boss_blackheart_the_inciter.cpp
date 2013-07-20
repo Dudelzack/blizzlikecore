@@ -47,7 +47,7 @@ struct boss_blackheart_the_inciterAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool InciteChaos;
     uint32 InciteChaos_Timer;

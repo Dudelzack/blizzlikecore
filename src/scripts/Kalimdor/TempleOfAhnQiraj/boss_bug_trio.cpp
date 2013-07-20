@@ -31,7 +31,7 @@ struct boss_kriAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Cleave_Timer;
     uint32 ToxicVolley_Timer;
@@ -116,7 +116,7 @@ struct boss_vemAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Charge_Timer;
     uint32 KnockBack_Timer;
@@ -197,7 +197,7 @@ struct boss_yaujAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 Heal_Timer;
     uint32 Fear_Timer;

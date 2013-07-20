@@ -3,7 +3,7 @@
 #################################################
 
 [worldserver]
-ConfVersion=20130523
+ConfVersion=20130716
 
 # Note to devs, line breaks should be at column 80
 ###############################################################################
@@ -2019,6 +2019,11 @@ CharDelete.KeepDays = 30
 #        Default: 1 - (Enabled)
 #                 0 - (Disabled)
 #
+#    Pet.React.Aggressive
+#        Description: Enable pet react aggressive as default.
+#        Default: 0 - (Disabled)
+#                 1 - (Enabled)
+#
 ###############################################################################
 
 PlayerStart.AllReputation = 0
@@ -2040,6 +2045,7 @@ PlayerStart.String = ""
 DuelMod.Enable = 0
 DuelMod.Cooldowns = 0
 Die.Command.Mode = 1
+Pet.React.Aggressive = 0
 
 ###############################################################################
 # AUTO BROADCAST

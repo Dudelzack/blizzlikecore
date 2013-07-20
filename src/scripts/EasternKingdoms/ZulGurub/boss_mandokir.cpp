@@ -62,7 +62,7 @@ struct boss_mandokirAI : public ScriptedAI
     float targetY;
     float targetZ;
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool endGaze;
     bool someGazed;
@@ -288,7 +288,7 @@ struct mob_ohganAI : public ScriptedAI
     }
 
     uint32 SunderArmor_Timer;
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     void Reset()
     {

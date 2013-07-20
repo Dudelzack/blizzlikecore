@@ -6,13 +6,13 @@ message("")
 message("* BlizzLikeCore rev. hash   : ${rev_hash}")
 message("* BlizzLikeCore rev. date   : ${rev_date}")
 if( UNIX )
-  message("* BlizzLikeCore buildtype  : ${CMAKE_BUILD_TYPE}")
+  message("* BlizzLikeCore buildtype   : ${CMAKE_BUILD_TYPE}")
 endif()
 message("")
 
 # Output information about installation-directories and locations
 
-message("* Install core to : ${CMAKE_INSTALL_PREFIX}")
+message("* Install core to        : ${CMAKE_INSTALL_PREFIX}")
 if( UNIX )
   message("* Install libraries to   : ${LIBSDIR}")
   message("* Install configs to     : ${CONF_DIR}")

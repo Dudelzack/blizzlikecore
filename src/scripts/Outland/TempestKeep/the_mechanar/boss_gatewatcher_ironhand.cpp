@@ -37,7 +37,7 @@ struct boss_gatewatcher_iron_handAI : public ScriptedAI
         HeroicMode = me->GetMap()->IsHeroic();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     bool HeroicMode;
 

@@ -103,7 +103,7 @@ struct boss_janalaiAI : public ScriptedAI
         }
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 FireBreathTimer;
     uint32 BombTimer;
@@ -465,7 +465,7 @@ struct mob_amanishi_hatcherAI : public ScriptedAI
         pInstance =c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 waypoint;
     uint32 HatchNum;
@@ -585,7 +585,7 @@ struct mob_hatchlingAI : public ScriptedAI
         pInstance =c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     uint32 BuffetTimer;
 
     void Reset()

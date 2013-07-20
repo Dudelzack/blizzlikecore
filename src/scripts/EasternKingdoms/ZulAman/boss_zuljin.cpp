@@ -133,7 +133,7 @@ struct boss_zuljinAI : public ScriptedAI
     {
         pInstance = c->GetInstanceData();
     }
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 SpiritGUID[4];
     uint64 ClawTargetGUID;

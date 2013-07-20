@@ -9,7 +9,7 @@ index 0000000..cf209a9
 +INSERT INTO `blizzlike_string` VALUES (6620,'|cfff00000Movement Anticheat: %s was %s using: %s.|r',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 \ No newline at end of file
 diff --git a/src/game/Language.h b/src/game/Language.h
-index 01f45ef..c68a338 100644
+index f56f163..bfb4852 100644
 --- a/src/game/Language.h
 +++ b/src/game/Language.h
 @@ -835,6 +835,7 @@ enum BlizzLikeStrings
@@ -21,7 +21,7 @@ index 01f45ef..c68a338 100644
      // Use for not-in-offcial-sources patches
      //                                    10000-10999
 diff --git a/src/game/MovementHandler.cpp b/src/game/MovementHandler.cpp
-index 93a6251..601f6f2 100644
+index 9c71841..e4913c0 100644
 --- a/src/game/MovementHandler.cpp
 +++ b/src/game/MovementHandler.cpp
 @@ -8,6 +8,7 @@
@@ -619,7 +619,7 @@ index 93a6251..601f6f2 100644
  
  void WorldSession::HandleMoveHoverAck(WorldPacket& recv_data)
 diff --git a/src/game/Player.cpp b/src/game/Player.cpp
-index e664071..01d15f7 100644
+index 1da6363..d40e9dc 100644
 --- a/src/game/Player.cpp
 +++ b/src/game/Player.cpp
 @@ -370,6 +370,24 @@ Player::Player (WorldSession *session): Unit()
@@ -647,7 +647,7 @@ index e664071..01d15f7 100644
      m_mailsLoaded = false;
      m_mailsUpdated = false;
      unReadMails = 0;
-@@ -20495,12 +20513,16 @@ bool ItemPosCount::isContainedIn(ItemPosCountVec const& vec) const
+@@ -20490,12 +20508,16 @@ bool ItemPosCount::isContainedIn(ItemPosCountVec const& vec) const
  
  void Player::HandleFallDamage(MovementInfo& movementInfo)
  {
@@ -667,7 +667,7 @@ index e664071..01d15f7 100644
      //Players with low fall distance, Feather Fall or physical immunity (charges used) are ignored
      // 14.57 can be calculated by resolving damageperc formular below to 0
 diff --git a/src/game/Player.h b/src/game/Player.h
-index cb35745..b678451 100644
+index db61e64..723a5da 100644
 --- a/src/game/Player.h
 +++ b/src/game/Player.h
 @@ -2296,6 +2296,22 @@ class Player : public Unit, public GridObject<Player>
@@ -694,7 +694,7 @@ index cb35745..b678451 100644
          Transport * m_transport;
  
 diff --git a/src/game/TaxiHandler.cpp b/src/game/TaxiHandler.cpp
-index eb48863..db078d6 100644
+index c98c503..8700fa5 100644
 --- a/src/game/TaxiHandler.cpp
 +++ b/src/game/TaxiHandler.cpp
 @@ -105,6 +105,11 @@ void WorldSession::SendDoFlight(uint16 MountId, uint32 path, uint32 pathNode)
@@ -741,7 +741,7 @@ index eb48863..db078d6 100644
      if (curDestNode && curDestNode->map_id != GetPlayer()->GetMapId())
      {
 diff --git a/src/game/World.cpp b/src/game/World.cpp
-index 80175c4..edfb42a 100644
+index f85c9c9..3a837db 100644
 --- a/src/game/World.cpp
 +++ b/src/game/World.cpp
 @@ -69,6 +69,14 @@ int32 World::m_visibility_notify_periodOnContinents = DEFAULT_VISIBILITY_NOTIFY_
@@ -775,10 +775,10 @@ index 80175c4..edfb42a 100644
  
      m_configs[CONFIG_COMPRESSION] = sConfig.GetIntDefault("Compression", 1);
 diff --git a/src/game/World.h b/src/game/World.h
-index fc70e52..e6f35b5 100644
+index 39ecd07..cbc347e 100644
 --- a/src/game/World.h
 +++ b/src/game/World.h
-@@ -565,6 +565,14 @@ class World
+@@ -566,6 +566,14 @@ class World
          static int32 GetVisibilityNotifyPeriodInInstances() { return m_visibility_notify_periodInInstances;  }
          static int32 GetVisibilityNotifyPeriodInBGArenas()  { return m_visibility_notify_periodInBGArenas;   }
  
@@ -793,7 +793,7 @@ index fc70e52..e6f35b5 100644
          void ProcessCliCommands();
          void QueueCliCommand(CliCommandHolder* commandHolder) { cliCmdQueue.add(commandHolder); }
  
-@@ -652,6 +660,14 @@ class World
+@@ -653,6 +661,14 @@ class World
          static int32 m_visibility_notify_periodInInstances;
          static int32 m_visibility_notify_periodInBGArenas;
  
@@ -809,10 +809,10 @@ index fc70e52..e6f35b5 100644
          ACE_Based::LockedQueue<CliCommandHolder*, ACE_Thread_Mutex> cliCmdQueue;
          SqlResultQueue *m_resultQueue;
 diff --git a/src/worldserver/worldserver.conf.dist b/src/worldserver/worldserver.conf.dist
-index 48bb574..6f89e79 100644
+index 361a688..a7215ad 100644
 --- a/src/worldserver/worldserver.conf.dist
 +++ b/src/worldserver/worldserver.conf.dist
-@@ -2057,3 +2057,43 @@ Die.Command.Mode = 1
+@@ -2063,3 +2063,43 @@ Pet.React.Aggressive = 0
  AutoBroadcast.On = 0
  AutoBroadcast.Center = 0
  AutoBroadcast.Timer = 60000

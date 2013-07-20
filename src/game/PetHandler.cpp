@@ -196,17 +196,9 @@ void WorldSession::HandlePetActionHelper(Unit* pet, uint64 guid1, uint16 spellid
             {
                 case REACT_PASSIVE:                         //passive
                     pet->AttackStop();
-                // return to owner if react is changed to passive
-                    pet->InterruptNonMeleeSpells(false);
-                    pet->GetMotionMaster()->MoveFollow(_player, PET_FOLLOW_DIST, pet->GetFollowAngle());
-                    charmInfo->SetCommandState(COMMAND_FOLLOW);
-                    charmInfo->SetIsCommandAttack(false);
-                    charmInfo->SetIsAtStay(false);
-                    charmInfo->SetIsReturning(true);
-                    charmInfo->SetIsFollowing(false);
 
                 case REACT_DEFENSIVE:                       //recovery
-                case REACT_AGGRESSIVE:                      //activate
+                case REACT_AGGRESSIVE:                      //aggressive
                     if (pet->GetTypeId() == TYPEID_UNIT)
                         pet->ToCreature()->SetReactState(ReactStates(spellid));
                     break;

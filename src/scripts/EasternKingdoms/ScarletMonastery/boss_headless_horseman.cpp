@@ -341,7 +341,7 @@ struct boss_headless_horsemanAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 headGUID;
     uint64 PlayerGUID;

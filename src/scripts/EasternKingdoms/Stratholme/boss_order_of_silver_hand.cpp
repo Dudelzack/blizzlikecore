@@ -37,7 +37,7 @@ struct boss_silver_hand_bossesAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint32 HolyLight_Timer;
     uint32 DivineShield_Timer;

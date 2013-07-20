@@ -58,7 +58,7 @@ struct boss_moroesAI : public ScriptedAI
         pInstance = c->GetInstanceData();
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     uint64 AddGUID[4];
 

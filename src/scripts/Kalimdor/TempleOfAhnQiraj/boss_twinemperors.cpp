@@ -48,7 +48,7 @@ EndScriptData */
 
 struct boss_twinemperorsAI : public ScriptedAI
 {
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     uint32 Heal_Timer;
     uint32 Teleport_Timer;
     bool AfterTeleport;

@@ -62,7 +62,7 @@ struct boss_alarAI : public ScriptedAI
         DefaultMoveSpeedRate = me->GetSpeedRate(MOVE_RUN);
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
 
     WaitEventType WaitEvent;
     uint32 WaitTimer;
@@ -423,7 +423,7 @@ struct mob_ember_of_alarAI : public ScriptedAI
         me->ApplySpellImmune(0, IMMUNITY_SCHOOL, SPELL_SCHOOL_MASK_FIRE, true);
     }
 
-    ScriptedInstance *pInstance;
+    ScriptedInstance* pInstance;
     bool toDie;
 
     void Reset() {toDie = false;}
