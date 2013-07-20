@@ -209,6 +209,7 @@ ALTER TABLE `character_tutorial` ADD `realmid` int(11) unsigned NOT NULL DEFAULT
 
 --
 -- `characters`
+ALTER TABLE `characters` ADD `data` longtext AFTER account;
 ALTER TABLE `characters` ADD `instance_id` int(11) unsigned NOT NULL DEFAULT '0' AFTER map;
 ALTER table `characters` CHANGE `power1` `powerMana` int(10) unsigned NOT NULL DEFAULT '0';
 ALTER table `characters` CHANGE `power2` `powerRage` int(10) unsigned NOT NULL DEFAULT '0';
