@@ -6,6 +6,8 @@
 
 -- Char Convert cmangos_tbc -> Blizzlikecore
 
+--
+-- `auctionhouse`
 DROP TABLE auction;
 DROP TABLE IF EXISTS `auctionhouse`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -27,10 +29,6 @@ CREATE TABLE `auctionhouse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- `auctionhouse`
---
-
 LOCK TABLES `auctionhouse` WRITE;
 /*!40000 ALTER TABLE `auctionhouse` DISABLE KEYS */;
 /*!40000 ALTER TABLE `auctionhouse` ENABLE KEYS */;
@@ -38,8 +36,6 @@ UNLOCK TABLES;
 
 --
 -- `auctionhousebot`
---
-
 DROP TABLE IF EXISTS `auctionhousebot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -110,10 +106,6 @@ CREATE TABLE `auctionhousebot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- `auctionhousebot`
---
-
 LOCK TABLES `auctionhousebot` WRITE;
 /*!40000 ALTER TABLE `auctionhousebot` DISABLE KEYS */;
 INSERT INTO `auctionhousebot` VALUES (2,'Alliance',0,0,0,27,12,10,1,0,0,0,10,30,8,2,0,0,100,150,150,250,800,1400,1250,1750,2250,4550,3250,5550,5250,6550,70,100,70,100,80,100,75,100,80,100,80,100,80,100,0,0,3,2,1,1,1,1,3,5,12,15,20,22,1,1),(6,'Horde',0,0,0,27,12,10,1,0,0,0,10,30,8,2,0,0,100,150,150,250,800,1400,1250,1750,2250,4550,3250,5550,5250,6550,70,100,70,100,80,100,75,100,80,100,80,100,80,100,0,0,3,2,1,1,1,1,3,5,12,15,20,22,1,1),(7,'Neutral',0,0,0,27,12,10,1,0,0,0,10,30,8,2,0,0,100,150,150,250,800,1400,1250,1750,2250,4550,3250,5550,5250,6550,70,100,70,100,80,100,75,100,80,100,80,100,80,100,0,0,3,2,1,1,1,1,3,5,12,15,20,22,1,1);
@@ -121,6 +113,8 @@ INSERT INTO `auctionhousebot` VALUES (2,'Alliance',0,0,0,27,12,10,1,0,0,0,10,30,
 UNLOCK TABLES;
 
 
+--
+-- `bugreport`
 DROP TABLE bugreport;
 DROP TABLE IF EXISTS `bugreport`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -133,18 +127,17 @@ CREATE TABLE `bugreport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Debug System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- `bugreport`
---
-
 LOCK TABLES `bugreport` WRITE;
 /*!40000 ALTER TABLE `bugreport` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bugreport` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+--
+-- `character_action`
 ALTER TABLE `character_action` ADD `misc` tinyint(3) unsigned NOT NULL DEFAULT '0' AFTER `type`;
 
+--
+-- `character_aura`
 ALTER table `character_aura` DROP item_guid;
 ALTER TABLE `character_aura` ADD `effect_index` int(11) unsigned NOT NULL DEFAULT '0' AFTER `spell`;
 ALTER TABLE `character_aura` ADD `amount` int(11) NOT NULL DEFAULT '0' AFTER `stackcount`;
@@ -161,7 +154,8 @@ ALTER TABLE `character_aura` drop PRIMARY KEY;
 ALTER TABLE `character_aura` add PRIMARY KEY (`guid`,`caster_guid`,`spell`,`effect_index`);
 
 
-
+--
+-- `character_battleground_data`
 DROP TABLE character_battleground_data;
 DROP TABLE IF EXISTS `character_battleground_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -182,10 +176,6 @@ CREATE TABLE `character_battleground_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Player System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `character_battleground_data`
---
-
 LOCK TABLES `character_battleground_data` WRITE;
 /*!40000 ALTER TABLE `character_battleground_data` DISABLE KEYS */;
 /*!40000 ALTER TABLE `character_battleground_data` ENABLE KEYS */;
@@ -195,6 +185,9 @@ UNLOCK TABLES;
 
 DROP TABLE character_db_version;
 DROP TABLE character_queststatus_daily;
+
+--
+-- `character_queststatus_daily`
 DROP TABLE IF EXISTS `character_queststatus_daily`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -207,20 +200,19 @@ CREATE TABLE `character_queststatus_daily` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Player System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `character_queststatus_daily`
---
-
 LOCK TABLES `character_queststatus_daily` WRITE;
 /*!40000 ALTER TABLE `character_queststatus_daily` DISABLE KEYS */;
 /*!40000 ALTER TABLE `character_queststatus_daily` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-
 DROP TABLE character_stats;
 DROP TABLE character_ticket;
+
 ALTER TABLE `character_tutorial` ADD `realmid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Realm Identifier' AFTER account;
+
+--
+-- `characters`
 ALTER TABLE `characters` ADD `instance_id` int(11) unsigned NOT NULL DEFAULT '0' AFTER map;
 ALTER table `characters` CHANGE `power1` `powerMana` int(10) unsigned NOT NULL DEFAULT '0';
 ALTER table `characters` CHANGE `power2` `powerRage` int(10) unsigned NOT NULL DEFAULT '0';
@@ -235,7 +227,8 @@ ALTER table `characters` DROP knownTitles;
 ALTER table `characters` DROP xp_rate;
 ALTER TABLE `characters` ADD `latency` int(11) unsigned NOT NULL DEFAULT '0' AFTER deleteDate;
 
-
+--
+-- `corpse`
 DROP TABLE IF EXISTS `corpse`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -264,16 +257,16 @@ CREATE TABLE `corpse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Death System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `corpse`
---
-
 LOCK TABLES `corpse` WRITE;
 /*!40000 ALTER TABLE `corpse` DISABLE KEYS */;
 /*!40000 ALTER TABLE `corpse` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
 DROP TABLE creature_respawn;
+
+--
+-- `game_event_condition_save`
 DROP TABLE IF EXISTS `game_event_condition_save`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -285,19 +278,13 @@ CREATE TABLE `game_event_condition_save` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `game_event_condition_save`
---
-
 LOCK TABLES `game_event_condition_save` WRITE;
 /*!40000 ALTER TABLE `game_event_condition_save` DISABLE KEYS */;
 /*!40000 ALTER TABLE `game_event_condition_save` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `game_event_save`
---
-
+-- `game_event_save`
 DROP TABLE IF EXISTS `game_event_save`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -309,19 +296,13 @@ CREATE TABLE `game_event_save` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `game_event_save`
---
-
 LOCK TABLES `game_event_save` WRITE;
 /*!40000 ALTER TABLE `game_event_save` DISABLE KEYS */;
 /*!40000 ALTER TABLE `game_event_save` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gm_surveys`
---
-
+-- `gm_surveys`
 DROP TABLE IF EXISTS `gm_surveys`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -337,19 +318,13 @@ CREATE TABLE `gm_surveys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Player System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `gm_surveys`
---
-
 LOCK TABLES `gm_surveys` WRITE;
 /*!40000 ALTER TABLE `gm_surveys` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gm_surveys` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gm_tickets`
---
-
+-- `gm_tickets`
 DROP TABLE IF EXISTS `gm_tickets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -373,10 +348,6 @@ CREATE TABLE `gm_tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Player System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `gm_tickets`
---
-
 LOCK TABLES `gm_tickets` WRITE;
 /*!40000 ALTER TABLE `gm_tickets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gm_tickets` ENABLE KEYS */;
@@ -395,6 +366,9 @@ DROP TABLE item_loot;
 DROP TABLE IF EXISTS `mail_external`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
+--
+-- `mail_external`
 CREATE TABLE `mail_external` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `receiver` bigint(20) unsigned NOT NULL,
@@ -407,15 +381,13 @@ CREATE TABLE `mail_external` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `mail_external`
---
-
 LOCK TABLES `mail_external` WRITE;
 /*!40000 ALTER TABLE `mail_external` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mail_external` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- `pet_aura`
 DROP TABLE IF EXISTS `pet_aura`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -433,15 +405,13 @@ CREATE TABLE `pet_aura` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Pet System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `pet_aura`
---
-
 LOCK TABLES `pet_aura` WRITE;
 /*!40000 ALTER TABLE `pet_aura` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pet_aura` ENABLE KEYS */;
 UNLOCK TABLES;
 
+-- Dumping data for table `saved_variables`
+--
 DROP TABLE IF EXISTS `saved_variables`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -449,10 +419,6 @@ CREATE TABLE `saved_variables` (
   `NextArenaPointDistributionTime` bigint(40) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='Variable Saves';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `saved_variables`
---
 
 LOCK TABLES `saved_variables` WRITE;
 /*!40000 ALTER TABLE `saved_variables` DISABLE KEYS */;
