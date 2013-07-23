@@ -247,22 +247,23 @@ LOCK TABLES `gm_tickets` WRITE;
 UNLOCK TABLES;
 
 DROP TABLE `gameobject_respawn`;
+
 ALTER table `groups` DROP groupId;
-ALTER TABLE `groups` drop PRIMARY KEY;
-ALTER TABLE `groups` add PRIMARY KEY (`leaderGuid`);
-ALTER TABLE `groups` drop UNIQUE KEY;
+ALTER TABLE `groups` ADD PRIMARY KEY (`leaderGuid`);
 
 ALTER table `group_member` CHANGE `groupId` `leaderGuid` int(11) unsigned NOT NULL;
-DROP TABLE IF EXISTS `group_member`;
-ALTER TABLE `group_member` drop PRIMARY KEY;
+
+ALTER TABLE `group_member` DROP PRIMARY KEY;
 ALTER TABLE `group_member` add PRIMARY KEY (`leaderGuid`,`memberGuid`);
 
-ALTER TABLE `guild_bank_item` drop INDEX;
+ALTER TABLE `guild_bank_item` DROP INDEX `Idx_item_guid`;
 
-ALTER TABLE `guild_eventlog` drop INDEX;
-ALTER TABLE `guild_eventlog` drop PRIMARY KEY;
+ALTER TABLE `guild_eventlog` DROP INDEX `Idx_PlayerGuid1`;
+ALTER TABLE `guild_eventlog` DROP INDEX `Idx_PlayerGuid2`;
+ALTER TABLE `guild_eventlog` DROP INDEX `Idx_LogGuid`;
+ALTER TABLE `guild_eventlog` DROP PRIMARY KEY;
 
-ALTER TABLE `guild_rank` drop INDEX;
+ALTER TABLE `guild_rank` DROP INDEX `Idx_rid`;
 
 DROP TABLE IF EXISTS `mail_external`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -317,4 +318,4 @@ UNLOCK TABLES;
 ALTER table `saved_variables` DROP NextDailyQuestResetTime;
 ALTER table `saved_variables` DROP cleaning_flags;
 
-DROP `world`;
+DROP TABLE `world`;
