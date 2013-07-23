@@ -8,7 +8,6 @@ Char Convert cmangos_tbc -> Blizzlikecore
 -- ERROR! characters table "data" field = BIG PROBLEM!
 
 
-
 DROP TABLE `character_db_version`;
 
 ALTER table `arena_team_stats` CHANGE `games_week` `games` int(10) unsigned NOT NULL DEFAULT '0';
@@ -100,7 +99,6 @@ CREATE TABLE `bugreport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Debug System';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
 ALTER TABLE `characters` ADD `data` longtext AFTER `account`;
 ALTER TABLE `characters` ADD `instance_id` int(11) unsigned NOT NULL DEFAULT '0' AFTER `map`;
 ALTER table `characters` CHANGE `power1` `powerMana` int(10) unsigned NOT NULL DEFAULT '0';
@@ -118,7 +116,6 @@ ALTER TABLE `characters` ADD `latency` int(11) unsigned NOT NULL DEFAULT '0' AFT
 
 UPDATE characters
   SET at_login = at_login | 4; -- reset talents at login
-
 
 ALTER TABLE `character_action` ADD `misc` tinyint(3) unsigned NOT NULL DEFAULT '0' AFTER `type`;
 
@@ -169,7 +166,6 @@ LOCK TABLES `character_tutorial` WRITE;
 /*!40000 ALTER TABLE `character_tutorial` DISABLE KEYS */;
 /*!40000 ALTER TABLE `character_tutorial` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 DROP TABLE `creature_respawn`;
 
@@ -250,7 +246,6 @@ LOCK TABLES `gm_tickets` WRITE;
 /*!40000 ALTER TABLE `gm_tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
 DROP TABLE `gameobject_respawn`;
 ALTER table `groups` DROP groupId;
 ALTER TABLE `groups` drop PRIMARY KEY;
@@ -261,7 +256,6 @@ ALTER table `group_member` CHANGE `groupId` `leaderGuid` int(11) unsigned NOT NU
 DROP TABLE IF EXISTS `group_member`;
 ALTER TABLE `group_member` drop PRIMARY KEY;
 ALTER TABLE `group_member` add PRIMARY KEY (`leaderGuid`,`memberGuid`);
-
 
 ALTER TABLE `guild_bank_item` drop INDEX;
 
@@ -319,7 +313,6 @@ LOCK TABLES `pet_aura` WRITE;
 /*!40000 ALTER TABLE `pet_aura` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pet_aura` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 ALTER table `saved_variables` DROP NextDailyQuestResetTime;
 ALTER table `saved_variables` DROP cleaning_flags;
