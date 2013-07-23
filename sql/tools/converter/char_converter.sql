@@ -2,9 +2,11 @@
 ###############################
 ####### (C) KillaVulkan #######
 ###############################
+Char Convert cmangos_tbc -> Blizzlikecore
 */
 
--- Char Convert cmangos_tbc -> Blizzlikecore
+-- ERROR! characters table "data" field = BIG PROBLEM!
+
 
 
 DROP TABLE `character_db_version`;
@@ -113,6 +115,10 @@ ALTER table `characters` DROP actionBars;
 ALTER table `characters` DROP knownTitles;
 ALTER table `characters` DROP xp_rate;
 ALTER TABLE `characters` ADD `latency` int(11) unsigned NOT NULL DEFAULT '0' AFTER deleteDate;
+
+UPDATE characters
+  SET at_login = at_login | 4; -- reset talents at login
+
 
 ALTER TABLE `character_action` ADD `misc` tinyint(3) unsigned NOT NULL DEFAULT '0' AFTER `type`;
 
